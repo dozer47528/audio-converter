@@ -30,4 +30,4 @@ jobs:
           file: ./Dockerfile
           platforms: linux/amd64
           push: true
-          tags: dozer47528/devops-toolkits-docker:latest
+          tags: dozer47528/audio-converter:latest
