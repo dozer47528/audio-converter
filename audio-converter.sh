@@ -23,8 +23,8 @@ do
 
             if [[ "$audio_count" != "$target_audio_count" ]]; then
                 echo "processing: $file"
-                echo "$ffprobe_output" | grep "Audio: \w*,"
-                new_file=/tmp/$(basename "$file")
+                mkdir -p "$TMPDIR"
+                new_file="${TMPDIR}/$(basename "$file")"
                 ffmpeg -i "$file" -map 0:v -c:v copy -map 0:a -c:a ac3 -map 0:s -c:s copy -y "$new_file"
                 chown --reference="$file" "$new_file"
                 mv "$new_file" "$file"
